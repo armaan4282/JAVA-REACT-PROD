@@ -14,7 +14,7 @@ import com.example.app.repository.UserRepository;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
     @Autowired
