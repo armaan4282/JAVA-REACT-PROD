@@ -7,7 +7,7 @@ function App() {
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
 
-  const baseUrl = "http://65.1.2.70:8080/api"; // change this
+  const baseUrl = "http://65.1.2.70:8081/api"; // change this
 
   const register = async () => {
     let res = await fetch(baseUrl + "/register", {
