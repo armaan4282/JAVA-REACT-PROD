@@ -7,10 +7,12 @@ function App() {
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
 
-  const baseUrl = "http://65.1.2.70:8081/api"; // change this
+  // ✅ FIXED: environment variable use
+  const baseUrl = process.env.REACT_APP_API_URL;
 
+  // REGISTER
   const register = async () => {
-    let res = await fetch(baseUrl + "/register", {
+    let res = await fetch(`${baseUrl}/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password }),
@@ -20,8 +22,9 @@ function App() {
     setMsg("Registered: " + data.email);
   };
 
+  // LOGIN
   const login = async () => {
-    let res = await fetch(baseUrl + "/login", {
+    let res = await fetch(`${baseUrl}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
